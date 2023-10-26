@@ -132,3 +132,42 @@ person1.eat()
 person1.exercise()
 person1.exercise()
 
+// Chef makes Dinners
+
+// Chef should be a factory of Dinner
+class Dinner {
+    // Add a constructor to dinner that sets the string properties, appetizer, entree and dessert.
+    constructor(appetizer, entree, dessert) {
+        this.appetizer = appetizer
+        this.entree = entree
+        this.dessert = dessert
+    }
+}
+
+class Chef {
+    constructor() {
+        this.dinner = []
+    }
+
+    // Add a method on chef that takes three arguments and returns a new Dinner based on those arguments.
+
+    makeDinner(appetizer, entree, dessert) {
+        let newDinner = new Dinner(appetizer, entree, dessert)
+        this.dinner.push(newDinner)
+        return this.dinner
+    }
+}
+
+// Have the Chef create 3 dinners, log the dinners
+
+chef1 = new Chef
+
+chef1.makeDinner("Breadsticks with Garlic Mannarina Sauce", "Chicken Parmasean", "Cheesecake")
+chef1.makeDinner("Canjun Fries", "Beef Wellington with Rochester Sauce", "Strawberry Sorbet")
+chef1.makeDinner("Chicken Tenders with Sauce", "Big Mac", "Apple Pie")
+
+
+
+
+
+
