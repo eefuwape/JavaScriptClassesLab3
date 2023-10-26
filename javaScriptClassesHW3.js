@@ -51,11 +51,19 @@ class Person {
             this.weight++
             this.mood++
             numberOfMeals--
-        }        
+        }  
+        console.log(this.weight)     
+        console.log(this.mood) 
     }
 
-    exercise() {
-        this.weight--
+    exercise(numberOfWorkouts) {
+        if (typeof numberOfWorkouts === 'number' && numberOfWorkouts > 0) {
+            for (let i = 0; i < numberOfWorkouts; i++) {
+                this.weight--
+            }
+        } else
+            return "Enter a valid number of Workouts greater than zero."
+        return this.weight
     }
 
     ageUp(numberOfYears) {
@@ -66,10 +74,11 @@ class Person {
             this.mood--
             this.bankAccount += 10
         }
+        return
     }
 
     buyHamster(hamster) {
-        const newHamster = new Hamster(name)
+        const newHamster = new Hamster(hamster)
         this.hamster.push(newHamster)
         this.mood += 10
         this.bankAccount -= newHamster.getPrice()
@@ -79,30 +88,24 @@ class Person {
 // 1. Instantiate a new Person named Timmy
 
 const person1 = new Person("Timmy")
+console.log(person1)
 
 // 2. Age Timmy five years
 
-for (let i = 0; i < 5; i++) {
-    person1.ageUp()
-}
+person1.ageUp(5)
+console.log(person1)
 
 // 3. Timmy eats 5 times
 
-for (let i = 0; i < 5; i++) {
-    person1.eat()
-}
+console.log(person1.eat(5))
 
 // 4. Have Timmy exercise five times
 
-for (let i = 0; i < 5; i++) {
-    person1.exercise()
-}
+console.log(person1.exercise(5))
 
 // 5. Age Timmy 9 years
 
-for (let i = 0; i < 9; i++) {
-    person1.ageUp()
-}
+console.log(person1.ageUp(9))
 
 // 6. Create a hamster named "Gus"
 
@@ -114,23 +117,22 @@ hamster1.owner = "Timmy"
 
 // 8. Have Timmy "buy" Gus
 
-person1.buyHamster()
+person1.buyHamster("Gus")
 
 // 9. Age Timmy 15 years
 
-for (let i = 0; i < 15; i++) {
-    person1.ageUp()
-}
+person1.ageUp(15)
+console.log(person1)
 
 // 10. Have Timmy eat twice
 
-person1.eat()
-person1.eat()
+person1.eat(2)
+console.log(person1)
 
 // 11. Have Timmy exercise twice
 
-person1.exercise()
-person1.exercise()
+console.log(person1.exercise(2))
+
 
 // Chef makes Dinners
 
@@ -164,7 +166,7 @@ chef1 = new Chef
 
 chef1.makeDinner("Breadsticks with Garlic Mannarina Sauce", "Chicken Parmasean", "Cheesecake")
 chef1.makeDinner("Canjun Fries", "Beef Wellington with Rochester Sauce", "Strawberry Sorbet")
-chef1.makeDinner("Chicken Tenders with Sauce", "Big Mac", "Apple Pie")
+console.log(chef1.makeDinner("Chicken Tenders with Sauce", "Big Mac", "Apple Pie"))
 
 
 
