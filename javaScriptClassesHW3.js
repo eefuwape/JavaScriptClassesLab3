@@ -46,27 +46,89 @@ class Person {
         return 'Greetings ' + this.name + '!'
     }
 
-    eat() {
-        this.weight++
-        this.mood++
+    eat(numberOfMeals) {
+        while (numberOfMeals < 0){
+            this.weight++
+            this.mood++
+            numberOfMeals--
+        }        
     }
 
     exercise() {
         this.weight--
     }
 
-    ageUp() {
-        this.age++
-        this.height++
-        this.weight++
-        this.mood--
-        this.bankAccount += 10
+    ageUp(numberOfYears) {
+        for(let i = 0; i < numberOfYears; i++) {
+            this.age++
+            this.height++
+            this.weight++
+            this.mood--
+            this.bankAccount += 10
+        }
     }
 
     buyHamster(hamster) {
         const newHamster = new Hamster(name)
         this.hamster.push(newHamster)
         this.mood += 10
-        this.bankAccount -= getPrice()
+        this.bankAccount -= newHamster.getPrice()
     }
 }
+
+// 1. Instantiate a new Person named Timmy
+
+const person1 = new Person("Timmy")
+
+// 2. Age Timmy five years
+
+for (let i = 0; i < 5; i++) {
+    person1.ageUp()
+}
+
+// 3. Timmy eats 5 times
+
+for (let i = 0; i < 5; i++) {
+    person1.eat()
+}
+
+// 4. Have Timmy exercise five times
+
+for (let i = 0; i < 5; i++) {
+    person1.exercise()
+}
+
+// 5. Age Timmy 9 years
+
+for (let i = 0; i < 9; i++) {
+    person1.ageUp()
+}
+
+// 6. Create a hamster named "Gus"
+
+hamster1 = new Hamster("Gus")
+
+// 7. Set Gus's owner to the string "Timmy"
+
+hamster1.owner = "Timmy"
+
+// 8. Have Timmy "buy" Gus
+
+person1.buyHamster()
+
+// 9. Age Timmy 15 years
+
+for (let i = 0; i < 15; i++) {
+    person1.ageUp()
+}
+
+// 10. Have Timmy eat twice
+
+person1.eat()
+person1.eat()
+
+// 11. Have Timmy exercise twice
+
+person1.exercise()
+person1.exercise()
+
